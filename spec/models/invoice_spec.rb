@@ -29,7 +29,19 @@ describe Invoice do
     expect(invoice.client_address).to eq(invoice.project.client_address)
   end
 
+  it 'is due a month from now by default' do
+    travel_to Time.now do
+      expect(invoice.due_at).to eq(1.month.from_now.to_date)
+    end
+  end
+
   def random_name(length = 8)
     ('a'..'z').to_a.shuffle[0,length].join
+  end
+
+  describe '#client_name_and_address' do
+    it 'is a combination of client name and address' do
+      expect(invoice.client_name_and_address).to eq("Acme Corporation\n1 Road Runner Loop\nAcmeville")
+    end
   end
 end

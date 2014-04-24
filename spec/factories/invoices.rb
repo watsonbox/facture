@@ -2,7 +2,7 @@ FactoryGirl.define do
   factory :invoice do
     reference 'SERV/AP1/001'
     currency 'EUR'
-    date '2014-04-03'
+    date { Time.now }
     association :project
 
     factory :invoice_with_line_items do

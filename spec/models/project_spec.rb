@@ -16,10 +16,16 @@ describe Project do
   end
 
   it 'delegates client_name to the client' do
-    expect(project.client_name).to eq(project.client.name)
+    allow(project.client).to receive(:name).and_return(random_name = self.random_name)
+    expect(project.client_name).to eq(random_name)
   end
 
   it 'delegates client_address to the client' do
-    expect(project.client_address).to eq(project.client.address)
+    allow(project.client).to receive(:address).and_return(random_name = self.random_name)
+    expect(project.client_address).to eq(random_name)
+  end
+
+  def random_name(length = 8)
+    ('a'..'z').to_a.shuffle[0,length].join
   end
 end

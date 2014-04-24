@@ -3,4 +3,10 @@ class LineItem < ActiveRecord::Base
   validates :quantity, :price, presence: true
 
   belongs_to :invoice
+
+  include Payday::LineItemable
+
+  # TODO: Make these optional in Payday
+  def display_price; nil end
+  def display_quantity; nil end
 end

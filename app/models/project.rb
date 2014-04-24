@@ -3,6 +3,7 @@ class Project < ActiveRecord::Base
   validates :client, presence: true
 
   belongs_to :client
+  has_many :invoices, dependent: :destroy
 
   delegate :name, to: :client, prefix: true
   delegate :address, to: :client, prefix: true

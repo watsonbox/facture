@@ -1,22 +1,22 @@
 require 'spec_helper'
 
 describe Invoice do
-  let(:invoice) { FactoryGirl.build(:invoice) }
+  let(:invoice) { build(:invoice) }
 
   it 'is valid when created with valid data' do
     expect(invoice).to be_valid
   end
 
   it 'is invalid when created without a reference' do
-    expect(FactoryGirl.build(:invoice, reference: nil)).to have(1).error_on(:reference)
+    expect(build(:invoice, reference: nil)).to have(1).error_on(:reference)
   end
 
   it 'is invalid when created without a currency' do
-    expect(FactoryGirl.build(:invoice, currency: nil)).to have(1).error_on(:currency)
+    expect(build(:invoice, currency: nil)).to have(1).error_on(:currency)
   end
 
   it 'is invalid when created without a date' do
-    expect(FactoryGirl.build(:invoice, date: nil)).to have(1).error_on(:date)
+    expect(build(:invoice, date: nil)).to have(1).error_on(:date)
   end
 
   it 'delegates client_name to the project' do

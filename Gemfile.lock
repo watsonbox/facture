@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:watsonbox/payday.git
-  revision: 689120c7bc198c27e668bacd95a4086286d84bcd
+  revision: 1e4c4e0cf27ca4bcbc02e38575b7f64796aa8e2e
   branch: custom_styling
   specs:
     payday (1.1.1)

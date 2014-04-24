@@ -10,8 +10,8 @@ FactoryGirl.define do
         line_item_count 5
       end
 
-      after(:create) do |invoice, evaluator|
-        create_list(:line_item, evaluator.line_item_count, invoice: invoice)
+      after(:build) do |invoice, evaluator|
+        invoice.line_items = create_list(:line_item, evaluator.line_item_count, invoice: invoice)
       end
     end
   end

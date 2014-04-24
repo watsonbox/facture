@@ -17,7 +17,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
-  include ActiveSupport::Testing::TimeHelpers
+  config.include ActiveSupport::Testing::TimeHelpers
+  config.include FactoryGirl::Syntax::Methods
 
   # ## Mock Framework
   #

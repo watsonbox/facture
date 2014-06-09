@@ -41,4 +41,10 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+
+  config.before(:each) do
+    # HACK: Reset TTFunk's internal class var @@subset_tag before each example
+    #       Otherwise PDF binary output is different depending on test ordering
+    TTFunk::Table::Name.class_variable_set('@@subset_tag', 'AAAAAA')
+  end
 end

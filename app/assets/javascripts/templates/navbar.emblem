@@ -1,0 +1,15 @@
+.navbar.navbar-default role="navigation"
+  .container-fluid
+    .navbar-header
+      a.navbar-brand href="#"
+        unbound Facture.app_title
+    .navbar-collapse.collapse
+      .nav.navbar-nav
+        li.dropdown
+          a.dropdown-toggle href="#" data-toggle="dropdown"
+            | Projects <b class="caret"></b>
+          ul class="dropdown-menu"
+            each project in controller.projects
+              li
+                link-to 'project' project
+                  = project.name

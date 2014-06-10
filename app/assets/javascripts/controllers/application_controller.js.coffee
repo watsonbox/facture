@@ -1,0 +1,1 @@
+Facture.ApplicationController = Ember.Controller.extend()

@@ -1,0 +1,12 @@
+h1 Projects
+
+table.table
+  thead
+    tr
+      th Name
+      th Code
+  tbody
+    = each project in controller
+      tr
+        td= project.name
+        td= project.code

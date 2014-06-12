@@ -1,0 +1,23 @@
+table.table
+  thead
+    tr
+      th Reference
+      th Date
+      th Amount
+      th
+  tbody
+    each
+      tr
+        td
+          link-to 'invoice' this
+            = reference
+        td= prettyDate date
+        td
+        td
+          .btn-group.btn-group-xs.right
+            button.btn.btn-default{action "edit"} type="button"
+              span.glyphicon.glyphicon-pencil
+            button.btn.btn-default{action "delete"} type="button"
+              span.glyphicon.glyphicon-trash
+            a.btn.btn-default href="/invoices/{{unbound this.id}}.pdf"
+              span.glyphicon.glyphicon-download-alt

@@ -1,0 +1,5 @@
+h1 Edit Invoice {{reference}}
+
+p= input value=reference
+
+button.btn.btn-default{action 'save'} Save

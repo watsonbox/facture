@@ -1,11 +1,5 @@
-.container-fluid
-  .row-fluid
-    .col-xs-2
-      .well
-        each invoice in invoices
-          link-to 'invoice' invoice
-            = invoice.reference
-        else
-          | No Invoices
-    .col-cs-10
-      h1= name
+h1= name
+
+h2 Invoices
+
+render 'invoices' invoices

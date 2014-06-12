@@ -1,3 +1,4 @@
 class InvoiceSerializer < ApplicationSerializer
-  attributes :id, :reference
+  attributes :id, :reference, :date
+  has_one :project
 end

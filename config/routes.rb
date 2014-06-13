@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :projects
+  resources :projects do
+    resources :invoices
+  end
+
   resources :invoices
 
   root to: 'application#index'

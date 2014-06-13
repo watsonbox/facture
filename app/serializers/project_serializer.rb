@@ -1,4 +1,9 @@
 class ProjectSerializer < ApplicationSerializer
-  attributes :id, :name, :code
-  has_many :invoices
+  attributes :id, :name, :code, :links
+
+  def links
+    {
+      invoices: project_invoices_path(id)
+    }
+  end
 end

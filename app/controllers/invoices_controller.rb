@@ -3,7 +3,11 @@ class InvoicesController < ApplicationController
   respond_to :json, :pdf
 
   def index
-    @invoices = Invoice.all
+    if params[:project_id].present?
+      respond_with Project.find(params[:project_id]).invoices
+    else
+      respond_with Invoice.all
+    end
   end
 
   def show

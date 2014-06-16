@@ -3,7 +3,7 @@ class Invoice < ActiveRecord::Base
   validates :project, :currency, :date, presence: true
 
   belongs_to :project
-  has_many :line_items, dependent: :destroy
+  has_many :line_items, dependent: :destroy, autosave: true
 
   delegate :client_name, to: :project
   delegate :client_address, to: :project

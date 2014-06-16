@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   resources :invoices
+  resources :line_items
 
   root to: 'application#index'
 

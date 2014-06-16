@@ -1,5 +1,35 @@
 h1 Edit Invoice {{reference}}
 
-p= input value=reference
+p= input value=reference class="form-control"
+
+h3 Line Items
+
+table.table
+  thead
+    th Description
+    th Price
+    th Quantity
+    th Amount
+    th
+  tbody
+    each lineItems
+      tr
+        td= input value=description class="form-control"
+        td= input value=price class="form-control"
+        td= input value=quantity class="form-control"
+        td= amount
+        td
+          .btn-group.btn-group-xs.right
+            button.btn.btn-default{action "deleteLineItem" this} type="button"
+              span.glyphicon.glyphicon-trash
+  tfoot
+    tr
+      td
+      td
+      td
+      td= amount
+      td
+
+p: a click=newLineItem New Line Item
 
 button.btn.btn-default{action 'save'} Save

@@ -12,7 +12,7 @@ table.table
           link-to 'invoice' this
             = reference
         td= prettyDate date
-        td
+        td= amount
         td
           .btn-group.btn-group-xs.right
             button.btn.btn-default{action "edit"} type="button"

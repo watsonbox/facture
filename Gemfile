@@ -23,4 +23,5 @@ group :development, :test do
   gem 'debugger'
   gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'factory_girl_rails'
+  gem 'quiet_assets'
 end

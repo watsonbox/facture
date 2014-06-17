@@ -24,7 +24,12 @@ class InvoicesController < ApplicationController
   # Expects :line_items and will save them exactly as received
   def update
     @invoice.attributes_with_line_items = invoice_params
-    respond_with @invoice.save!
+
+    if @invoice.save
+      respond_with @invoice
+    else
+      render json: { errors: { :base => @invoice.errors.full_messages } }, status: 422
+    end
   end
 
   private

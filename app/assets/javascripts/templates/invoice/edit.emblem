@@ -1,5 +1,10 @@
 h1 Edit Invoice {{reference}}
 
+if errors.base
+  .alert.alert-danger
+    each error in errors.base
+      p= error.message
+
 p= input value=reference class="form-control"
 
 h3 Line Items

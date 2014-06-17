@@ -19,4 +19,20 @@ class Invoice < ActiveRecord::Base
   alias_attribute :invoice_number, :reference
   def paid_at; nil end
   def due_at; date + 1.month end
+
+  # Supports assigning attributes with embedded line_items
+  # Set autosave: true on the association to ensure child updates are saved
+  def attributes_with_line_items=(params)
+    params = ActiveSupport::HashWithIndifferentAccess.new(params)
+
+    new_line_items = params[:line_items].to_a.map do |line_item_params|
+      line_item = line_items.find { |li| li.id.to_s == line_item_params[:id] }
+      line_item ||= LineItem.new
+      line_item.attributes = line_item_params
+      line_item
+    end
+
+    self.line_items = new_line_items
+    self.attributes = params.except(:line_items)
+  end
 end

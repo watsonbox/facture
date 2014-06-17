@@ -21,17 +21,9 @@ class InvoicesController < ApplicationController
     end
   end
 
-  # Excepts :line_items and will save then exactly as received
+  # Expects :line_items and will save them exactly as received
   def update
-    new_line_items = invoice_params[:line_items].to_a.map do |line_item_params|
-      line_item = @invoice.line_items.find { |li| li.id.to_s == line_item_params[:id] }
-      line_item ||= LineItem.new
-      line_item.attributes = line_item_params
-      line_item
-    end
-
-    @invoice.line_items = new_line_items
-    @invoice.attributes = invoice_params.except(:line_items)
+    @invoice.attributes_with_line_items = invoice_params
     respond_with @invoice.save!
   end
 

@@ -32,6 +32,21 @@ class InvoicesController < ApplicationController
     end
   end
 
+  def create
+    @invoice = Invoice.new
+    @invoice.attributes_with_line_items = invoice_params
+
+    # Provide some defaults as they are not yet on the form
+    @invoice.date ||= Date.today
+    @invoice.currency ||= 'EUR'
+
+    if @invoice.save
+      respond_with @invoice
+    else
+      render json: { errors: { :base => @invoice.errors.full_messages } }, status: 422
+    end
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
@@ -40,6 +55,6 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_params
-    params.require(:invoice).permit(:reference, :date, { :line_items => [:description, :price, :quantity, :invoice_id, :id] })
+    params.require(:invoice).permit(:reference, :date, :project_id, { :line_items => [:description, :price, :quantity, :invoice_id, :id] })
   end
 end

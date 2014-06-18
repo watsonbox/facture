@@ -1,0 +1,7 @@
+h1= name
+
+h2 Invoices
+
+render 'invoices.index' invoices
+
+p: link-to "invoices.new" | New Invoice

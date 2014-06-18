@@ -22,5 +22,4 @@ Facture.InvoiceEditController = Ember.ObjectController.extend
       @get('lineItems').addObject(@store.createRecord('lineItem', { price: 23, quantity: 1 }))
 
     deleteLineItem: (lineItem) ->
-      console.log lineItem
       @get('lineItems').removeObject(lineItem)

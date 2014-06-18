@@ -4,9 +4,9 @@ class InvoicesController < ApplicationController
 
   def index
     if params[:project_id].present?
-      respond_with Project.find(params[:project_id]).invoices
+      respond_with Project.find(params[:project_id]).invoices.includes(:line_items)
     else
-      respond_with Invoice.all
+      respond_with Invoice.all.includes(:line_items)
     end
   end
 

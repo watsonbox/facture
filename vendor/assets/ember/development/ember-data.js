@@ -11392,6 +11392,8 @@ define("ember-data/lib/system/store",
 
         var records = store.pushMany(relationship.type, payload);
         record.updateHasMany(relationship.key, records);
+
+        return records; // HW - https://github.com/emberjs/data/pull/2040
       }, null, "DS: Extract payload of " + record + " : hasMany " + relationship.type);
     }
 

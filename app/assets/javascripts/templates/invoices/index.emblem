@@ -7,7 +7,7 @@ table.table
       th
   tbody
     each
-      tr
+      tr class=isThisOrLineItemsDirty:bg-danger
         td
           link-to 'invoice' this
             = reference

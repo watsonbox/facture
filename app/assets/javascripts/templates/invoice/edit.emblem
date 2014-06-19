@@ -37,4 +37,10 @@ table.table
 
 p: a click=newLineItem New Line Item
 
-button.btn.btn-default{action 'save'} Save
+button.btn.btn-default{action 'cancel'}
+  span.glyphicon.glyphicon-remove-circle
+  |  Cancel
+'
+button.btn.btn-default{action 'save'} class=isThisOrLineItemsDirty::disabled
+  span.glyphicon.glyphicon-ok-circle
+  |  Save

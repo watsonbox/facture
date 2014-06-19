@@ -8,6 +8,13 @@ Facture.InvoiceEditController = Ember.ObjectController.extend
         @transitionToRoute 'project', @get('model.project')
       ), (=>))
 
+    cancel: ->
+      # Rollback the invoice and reload its line items
+      @get('model').rollback()
+      @get('model.lineItems').then (a) -> a.reloadLinks()
+
+      @transitionToRoute 'project', @get('model.project')
+
     newLineItem: ->
       @get('lineItems').addObject(@store.createRecord('lineItem', { price: 23, quantity: 1 }))
 

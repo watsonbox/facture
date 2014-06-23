@@ -12,6 +12,7 @@ GIT
 GEM
   remote: https://rubygems.org/
   specs:
+    accountingjs-rails (0.0.4)
     actionmailer (4.1.0.rc2)
       actionpack (= 4.1.0.rc2)
       actionview (= 4.1.0.rc2)
@@ -204,6 +205,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  accountingjs-rails
   coffee-rails (~> 4.0.0)
   debugger
   ember-rails

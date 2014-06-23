@@ -38,7 +38,6 @@ class InvoicesController < ApplicationController
 
     # Provide some defaults as they are not yet on the form
     @invoice.date ||= Date.today
-    @invoice.currency ||= 'EUR'
 
     if @invoice.save
       respond_with @invoice
@@ -59,6 +58,6 @@ class InvoicesController < ApplicationController
   end
 
   def invoice_params
-    params.require(:invoice).permit(:reference, :date, :project_id, { :line_items => [:description, :price, :quantity, :invoice_id, :id] })
+    params.require(:invoice).permit(:reference, :date, :currency, :project_id, { :line_items => [:description, :price, :quantity, :invoice_id, :id] })
   end
 end

@@ -1,6 +1,7 @@
 Facture.Invoice = DS.Model.extend
   reference: DS.attr('string')
   date: DS.attr('date')
+  currency: DS.attr('string')
   subtotal: DS.attr('number')
   project: DS.belongsTo('project')
   lineItems: DS.hasMany('lineItem', { async: true })

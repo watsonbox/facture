@@ -1,4 +1,5 @@
 #= require moment
+#= require accountingjs
 #= require jquery
 #= require jquery_ujs
 #= require handlebars

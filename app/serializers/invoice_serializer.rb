@@ -1,5 +1,5 @@
 class InvoiceSerializer < ApplicationSerializer
-  attributes :id, :reference, :date, :subtotal, :links
+  attributes :id, :reference, :date, :currency, :subtotal, :links
   has_one :project
 
   def links

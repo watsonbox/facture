@@ -10,6 +10,7 @@ gem 'ember-rails'
 gem 'ember-source'
 gem 'emblem-rails'
 gem 'momentjs-rails'
+gem 'accountingjs-rails'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'

@@ -13,3 +13,5 @@
               li
                 link-to 'project' project
                   = project.name
+        li
+          p.navbar-text= title

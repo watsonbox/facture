@@ -1,5 +1,3 @@
-h1= name
-
 h2 Invoices
 
 render 'invoices.index' invoices

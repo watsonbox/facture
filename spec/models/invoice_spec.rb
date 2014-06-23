@@ -81,7 +81,7 @@ describe Invoice do
       expect(invoice.line_items.first.description).to eq("Description 1")
     end
 
-    it 'destroys removed line items' do
+    it 'reports validation errors correctly for invalid modified line items' do
       project = create(:project)
       invoice = create(
         :invoice,
@@ -90,12 +90,29 @@ describe Invoice do
         currency: "GBP",
         project: project,
         line_items: [
-          build(:line_item, description: "Description 1", price: 10, quantity: 2, invoice_id: "1"),
           build(:line_item, description: "Description 2", price: 10, quantity: 2, invoice_id: "1")
         ]
       )
 
-      expect(invoice.reload.line_items.length).to eq(2)
+      expect(invoice.line_items.length).to eq(1)
+      expect(invoice.line_items.first.description).to eq("Description 2")
+
+      invoice.attributes_with_line_items = invalid_params(project.id)
+      invoice.save
+
+      expect(invoice).not_to be_valid
+      expect(invoice.errors.full_messages).to eq ["Reference can't be blank", "Line items description can't be blank"]
+    end
+
+    it 'destroys removed line items' do
+      project = create(:project)
+      invoice = create(
+        :invoice,
+        reference: "INVBB-001",
+        date: "Fri, 04 Apr 2014 00:00:00 GMT",
+        currency: "GBP",
+        project: project
+      )
 
       invoice.attributes_with_line_items = params(project.id)
       invoice.save
@@ -125,6 +142,18 @@ describe Invoice do
         "project_id" => project_id,
         "line_items" => [
           { "description" => "Description 1", "price" => 10, "quantity" => 2, "invoice_id" => "1", "id" => nil }
+        ]
+      }
+    end
+
+    def invalid_params(project_id)
+      {
+        "reference" => "",
+        "date" => "Fri, 04 Apr 2014 00:00:00 GMT",
+        "currency" => "GBP",
+        "project_id" => project_id,
+        "line_items" => [
+          { "description" => "", "price" => 10, "quantity" => 2, "invoice_id" => "1", "id" => nil }
         ]
       }
     end

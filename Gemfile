@@ -11,6 +11,7 @@ gem 'ember-source'
 gem 'emblem-rails'
 gem 'momentjs-rails'
 gem 'accountingjs-rails'
+gem 'bootstrap-datepicker-rails'
 
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'

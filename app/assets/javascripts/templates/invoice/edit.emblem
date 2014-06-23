@@ -11,6 +11,9 @@ if errors.base
     .form-group
       label for=invoiceCurrency Currency
       = view Ember.Select content=Facture.currencies optionLabelPath="content.symbol" optionValuePath="content.name" prompt="Select a currency" value=currency class="form-control"
+    .form-group
+      label for=invoiceDate Date
+      = view Facture.DatePicker id=invoiceDate class="form-control" value=date
 
   .col-xs-8
     table.table
@@ -38,6 +41,8 @@ if errors.base
           td
           td= formatMoney amount currency
           td
+
+hr
 
 button.btn.btn-default{action 'cancel'}
   span.glyphicon.glyphicon-remove-circle

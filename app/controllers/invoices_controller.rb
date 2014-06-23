@@ -36,9 +36,6 @@ class InvoicesController < ApplicationController
     @invoice = Invoice.new
     @invoice.attributes_with_line_items = invoice_params
 
-    # Provide some defaults as they are not yet on the form
-    @invoice.date ||= Date.today
-
     if @invoice.save
       respond_with @invoice
     else

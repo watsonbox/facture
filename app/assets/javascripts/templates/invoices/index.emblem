@@ -17,6 +17,8 @@ table.table
           .btn-group.btn-group-xs.right
             button.btn.btn-default{action "edit"} type="button"
               span.glyphicon.glyphicon-pencil
+            link-to "invoice.duplicate" this class="btn btn-default" title="Duplicate Invoice"
+              span.glyphicon.glyphicon-plus-sign
             button.btn.btn-default{action "delete"} type="button"
               span.glyphicon.glyphicon-trash
             a.btn.btn-default href="/invoices/{{unbound this.id}}.pdf"

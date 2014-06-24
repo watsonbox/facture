@@ -8,5 +8,6 @@ Facture.Router.map ->
   @resource 'invoices', path: '/invoices', ->
     @resource 'invoice', path: '/:invoice_id', ->
       @route 'edit'
+      @route 'duplicate'
 
   @resource 'lineItem', path: '/line_items/:line_item_id'

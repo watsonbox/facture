@@ -39,7 +39,7 @@ if errors.base
           td: a href="#" click=newLineItem New Line Item
           td
           td
-          td= formatMoney amount currency
+          td: strong= formatMoney amount currency
           td
 
 hr

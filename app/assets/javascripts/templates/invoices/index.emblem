@@ -9,7 +9,7 @@ table.table
     each
       tr class=isThisOrLineItemsDirty:bg-danger
         td
-          link-to 'invoice' this
+          a href='#' click=edit
             = reference
         td= prettyDate date
         td= formatMoney amount currency

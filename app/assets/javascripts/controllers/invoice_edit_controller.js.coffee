@@ -16,7 +16,7 @@ Facture.InvoiceEditController = Ember.ObjectController.extend
       @transitionToRoute 'project', @get('model.project')
 
     newLineItem: ->
-      @get('lineItems').addObject(@store.createRecord('lineItem', { price: 23, quantity: 1 }))
+      @get('lineItems').addObject(@store.createRecord('lineItem', { price: 0, quantity: 1 }))
 
     deleteLineItem: (lineItem) ->
       # Manually set dirty as Invoice#isThisOrLineItemsDirty won't know about deletions

@@ -1,23 +1,19 @@
 Facture.InvoicesNewController = Ember.ObjectController.extend
-  needs: ['project']
-
   actions:
     save: ->
-      project = @get('controllers.project').get('model')
-
-      @get('model').set('project', project)
       @get('model').save().then((=>
-        project.get('invoices').then (invoices) =>
+        @get('project').get('invoices').then (invoices) =>
           invoices.addObject @get('model')
-        @transitionToRoute 'project', @get('model.project')
+        @transitionToRoute 'project', @get('project')
       ), (=>))
 
     cancel: ->
+      project = @get('project')
       @get('model').deleteRecord()
-      @transitionToRoute 'project', @get('controllers.project').get('model')
+      @transitionToRoute 'project', project
 
     newLineItem: ->
-      @get('lineItems').addObject(@store.createRecord('lineItem', { price: 23, quantity: 1 }))
+      @get('lineItems').addObject(@store.createRecord('lineItem', { price: 0, quantity: 1 }))
 
     deleteLineItem: (lineItem) ->
       @get('lineItems').removeObject(lineItem)

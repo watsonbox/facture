@@ -1,6 +1,6 @@
 Facture.InvoicesNewRoute = Ember.Route.extend
   model: ->
-    @store.createRecord('invoice')
+    @store.createRecord('invoice', { project: @modelFor('project') })
 
   # Re-use the edit template for now
   renderTemplate: ->

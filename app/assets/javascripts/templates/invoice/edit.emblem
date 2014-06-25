@@ -26,13 +26,13 @@ if errors.base
       tbody
         each lineItems
           tr
-            td= input value=description class="form-control"
-            td= input value=price class="form-control"
-            td= input value=quantity class="form-control"
+            td.small= input value=description class="form-control input-sm"
+            td= input value=price class="form-control input-sm"
+            td= input value=quantity class="form-control input-sm"
             td= formatMoney amount invoice.currency
             td.text-right
               .btn-group.btn-group-xs.right
-                button.btn.btn-default{action "deleteLineItem" this} type="button"
+                button.btn.btn-default{action "deleteLineItem" this} type="button" data-toggle="tooltip" data-placement="top" data-container="body" title="Delete line item"
                   span.glyphicon.glyphicon-trash
       tfoot
         tr

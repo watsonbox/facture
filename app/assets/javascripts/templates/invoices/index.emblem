@@ -15,11 +15,17 @@ table.table
         td= formatMoney amount currency
         td.text-right
           .btn-group.btn-group-xs.right
-            button.btn.btn-default{action "edit"} type="button"
+            button.btn.btn-default{action "edit"} type="button" data-toggle="tooltip" data-placement="top" data-container="body" title="Edit invoice"
               span.glyphicon.glyphicon-pencil
-            link-to "invoice.duplicate" this class="btn btn-default" title="Duplicate Invoice"
+            link-to "invoice.duplicate" this class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Duplicate Invoice"
               span.glyphicon.glyphicon-plus-sign
-            button.btn.btn-default{action "delete"} type="button"
+            button.btn.btn-default{action "delete"} type="button" data-toggle="tooltip" data-placement="top" data-container="body" title="Delete invoice"
               span.glyphicon.glyphicon-trash
-            a.btn.btn-default href="/invoices/{{unbound this.id}}.pdf"
+            a.btn.btn-default href="/invoices/{{unbound this.id}}.pdf" target="_blank" data-toggle="tooltip" data-placement="top" data-container="body" title="Render invoice"
               span.glyphicon.glyphicon-download-alt
+  tfoot
+    tr
+      td
+      td
+      td
+      td

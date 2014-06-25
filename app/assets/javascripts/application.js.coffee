@@ -41,3 +41,14 @@ DS.ManyArray.reopen
     # Rollback each record to clear dirty status
     resolver.promise.then (records) ->
       records.forEach (r) -> r.rollback()
+
+# Automatically bind data attributes in ember view helpers
+Ember.View.reopen
+  init: ->
+    @_super()
+    Em.keys(this).forEach (key) =>
+      if key.substr(0, 5) == 'data-'
+        @get('attributeBindings').pushObject key
+
+$ -> $('body').tooltip
+  selector: "button[data-toggle=tooltip],a[data-toggle=tooltip]"

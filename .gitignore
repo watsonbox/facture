@@ -15,4 +15,7 @@
 /log/*.log
 /tmp
 
+# Ignore application config file
+/config/application.yml
+
 .DS_Store

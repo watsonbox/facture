@@ -91,6 +91,9 @@ GEM
     factory_girl_rails (4.4.1)
       factory_girl (~> 4.4.0)
       railties (>= 3.0.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -213,6 +216,7 @@ DEPENDENCIES
   ember-source
   emblem-rails
   factory_girl_rails
+  figaro
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails

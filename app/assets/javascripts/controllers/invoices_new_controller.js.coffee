@@ -1,4 +1,6 @@
 Facture.InvoicesNewController = Ember.ObjectController.extend
+  isImporting: false
+
   actions:
     save: ->
       @get('model').save().then((=>
@@ -17,3 +19,13 @@ Facture.InvoicesNewController = Ember.ObjectController.extend
 
     deleteLineItem: (lineItem) ->
       @get('lineItems').removeObject(lineItem)
+
+    importRedmineTimeEntries: ->
+      @set('isImporting', true)
+
+      importer = new Facture.RedmineImporter @store, Facture.config.redmine_url, Facture.config.redmine_api_key
+      importer.uninvoicedTimeForProject @get('project.redmineProjectId'), (lineItems) =>
+        for lineItem in lineItems
+          @get('lineItems').addObject lineItem
+
+        @set('isImporting', false)

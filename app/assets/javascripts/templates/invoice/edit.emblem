@@ -48,6 +48,12 @@ button.btn.btn-default{action 'cancel'}
   span.glyphicon.glyphicon-remove-circle
   |  Cancel
 '
-button.btn.btn-default{action 'save'} class=isThisOrLineItemsDirty::disabled
+button.btn.btn-success{action 'save'} class=isThisOrLineItemsDirty::disabled
   span.glyphicon.glyphicon-ok-circle
   |  Save
+
+if project.redmineProjectId
+  if isDirty
+    button.btn.btn-default.pull-right.has-spinner{action 'importRedmineTimeEntries'} class=isImporting:active
+      span.spinner: i.fa.fa-spin.fa-refresh
+      |  Import Redmine Time Entries

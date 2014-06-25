@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140424111738) do
+ActiveRecord::Schema.define(version: 20140624165155) do
 
   create_table "clients", force: true do |t|
     t.string   "name",       null: false
@@ -43,11 +43,12 @@ ActiveRecord::Schema.define(version: 20140424111738) do
   add_index "line_items", ["invoice_id"], name: "index_line_items_on_invoice_id"
 
   create_table "projects", force: true do |t|
-    t.string   "name",       null: false
-    t.string   "code",       null: false
-    t.integer  "client_id",  null: false
+    t.string   "name",               null: false
+    t.string   "code",               null: false
+    t.integer  "client_id",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "redmine_project_id"
   end
 
   add_index "projects", ["client_id"], name: "index_projects_on_client_id"

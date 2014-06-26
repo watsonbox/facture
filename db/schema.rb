@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625154437) do
+ActiveRecord::Schema.define(version: 20140626111819) do
 
   create_table "clients", force: true do |t|
     t.string   "name",       null: false
@@ -21,13 +21,14 @@ ActiveRecord::Schema.define(version: 20140625154437) do
   end
 
   create_table "invoices", force: true do |t|
-    t.integer  "project_id", null: false
-    t.string   "reference",  null: false
-    t.string   "currency",   null: false
-    t.date     "date",       null: false
+    t.integer  "project_id",                     null: false
+    t.string   "reference",                      null: false
+    t.string   "currency",                       null: false
+    t.date     "date",                           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "paid"
+    t.float    "default_currency_exchange_rate"
   end
 
   add_index "invoices", ["project_id"], name: "index_invoices_on_project_id"

@@ -13,7 +13,12 @@ table.table
           a href='#' click=edit
             = reference
         td= prettyDate date
-        td= formatMoney amount currency
+        td
+          = formatMoney amount currency
+          if amountInDefaultCurrency
+            |  (
+            = formatMoney amountInDefaultCurrency Facture.config.default_currency
+            | )
         td
           if paid
             span.label.label-success Paid

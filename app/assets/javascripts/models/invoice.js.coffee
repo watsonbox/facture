@@ -3,6 +3,7 @@ Facture.Invoice = DS.Model.extend
   date: DS.attr('string')
   currency: DS.attr('string')
   paid: DS.attr('boolean')
+  defaultCurrencyExchangeRate: DS.attr('number')
   subtotal: DS.attr('number')
   project: DS.belongsTo('project')
   lineItems: DS.hasMany('lineItem', { async: true })
@@ -17,6 +18,14 @@ Facture.Invoice = DS.Model.extend
     else
       @get('subtotal')
   ).property('lineItems.@each.amount')
+
+  # Amount converted to default currency
+  amountInDefaultCurrency: (->
+    if Facture.config.default_currency && Facture.config.default_currency != @get('currency') && @get('defaultCurrencyExchangeRate')
+      @get('defaultCurrencyExchangeRate') * @get('amount')
+    else if Facture.config.default_currency == @get('currency')
+      @get('amount')
+  ).property('amount', 'defaultCurrencyExchangeRate')
 
   # Invoice is dirty if it or any line items are dirty
   # (deleting a line item manually sets the dirty state on the invoice)

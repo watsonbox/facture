@@ -22,3 +22,7 @@ Facture.InvoiceEditController = Ember.ObjectController.extend
       # Manually set dirty as Invoice#isThisOrLineItemsDirty won't know about deletions
       @get('model').send('becomeDirty')
       @get('lineItems').removeObject(lineItem)
+
+    togglePaid: ->
+      @set('paid', !@get('paid'))
+      @get('model').save().then((=>), (=>))

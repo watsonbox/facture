@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624165155) do
+ActiveRecord::Schema.define(version: 20140625154437) do
 
   create_table "clients", force: true do |t|
     t.string   "name",       null: false
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20140624165155) do
     t.date     "date",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "paid"
   end
 
   add_index "invoices", ["project_id"], name: "index_invoices_on_project_id"

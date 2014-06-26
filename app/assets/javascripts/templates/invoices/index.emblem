@@ -4,6 +4,7 @@ table.table
       th Reference
       th Date
       th Amount
+      th Status
       th
   tbody
     each
@@ -13,6 +14,11 @@ table.table
             = reference
         td= prettyDate date
         td= formatMoney amount currency
+        td
+          if paid
+            span.label.label-success Paid
+          else
+            span.label.label-warning Awaiting Payment
         td.text-right
           .btn-group.btn-group-xs.right
             button.btn.btn-default{action "edit"} type="button" data-toggle="tooltip" data-placement="top" data-container="body" title="Edit invoice"
@@ -25,6 +31,7 @@ table.table
               span.glyphicon.glyphicon-download-alt
   tfoot
     tr
+      td
       td
       td
       td

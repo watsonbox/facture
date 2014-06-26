@@ -24,6 +24,10 @@ module Payday
     end
 
     def render_header
+      orig = cursor
+      render_stamp
+      move_cursor_to orig
+
       fill_color colors[:text]
 
       float do

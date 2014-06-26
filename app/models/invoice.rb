@@ -18,6 +18,7 @@ class Invoice < ActiveRecord::Base
   alias_method :bill_to, :client_name_and_address
   alias_attribute :invoice_number, :reference
   def paid_at; nil end
+  def paid?; paid end
   def due_at; date + 1.month end
 
   def attributes_with_line_items=(params)

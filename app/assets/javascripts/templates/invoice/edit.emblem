@@ -44,6 +44,20 @@ if errors.base
 
 hr
 
+if project.redmineProjectId
+  if isNew
+    button.btn.btn-default.pull-right.has-spinner{action 'importRedmineTimeEntries'} class=isImporting:active
+      span.spinner: i.fa.fa-spin.fa-refresh
+      |  Import Redmine Time Entries
+
+unless isNew
+  button.btn.pull-right{action 'togglePaid'} class={paid:btn-success:btn-warning paid:active}
+    if paid
+      span.glyphicon.glyphicon-ok-circle
+      |  Paid
+    else
+      | Mark Paid
+
 button.btn.btn-default{action 'cancel'}
   span.glyphicon.glyphicon-remove-circle
   |  Cancel
@@ -51,9 +65,3 @@ button.btn.btn-default{action 'cancel'}
 button.btn.btn-success{action 'save'} class=isThisOrLineItemsDirty::disabled
   span.glyphicon.glyphicon-ok-circle
   |  Save
-
-if project.redmineProjectId
-  if isDirty
-    button.btn.btn-default.pull-right.has-spinner{action 'importRedmineTimeEntries'} class=isImporting:active
-      span.spinner: i.fa.fa-spin.fa-refresh
-      |  Import Redmine Time Entries

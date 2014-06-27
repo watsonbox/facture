@@ -10,6 +10,11 @@ class Invoice < ActiveRecord::Base
 
   include Payday::Invoiceable
 
+  UNITS = {
+    1 => :hours,
+    2 => :days
+  }
+
   def client_name_and_address
     "#{client_name}\n#{client_address}"
   end
@@ -23,5 +28,15 @@ class Invoice < ActiveRecord::Base
 
   def attributes_with_line_items=(params)
     InvoiceAttributeUpdater.new(self).update_attributes(params)
+  end
+
+  def unit_name
+    UNITS[unit] || :days
+  end
+
+  def payday_translation(key)
+    case key
+      when 'line_item.quantity' then unit_name.to_s.upcase
+    end
   end
 end

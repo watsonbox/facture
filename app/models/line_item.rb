@@ -8,5 +8,8 @@ class LineItem < ActiveRecord::Base
 
   # TODO: Make these optional in Payday
   def display_price; nil end
-  def display_quantity; nil end
+
+  def display_quantity
+    quantity.presence || '-'
+  end
 end

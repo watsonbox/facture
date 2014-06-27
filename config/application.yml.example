@@ -1,3 +1,5 @@
+company_name: "Acme Corporation"
+company_description: "If it's Acme, it's a gasser"
 default_currency: 'EUR'
 redmine_url: "http://example.com/redmine"
 redmine_api_key: "123"

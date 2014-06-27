@@ -50,6 +50,26 @@ module Payday
       move_down 30
     end
 
+    def render_footer
+      require 'csv'
+
+      footer_data = [
+        CSV.parse_line(Figaro.env.footer_data_row1, quote_char: "'"),
+        CSV.parse_line(Figaro.env.footer_data_row2, quote_char: "'"),
+        CSV.parse_line(Figaro.env.footer_data_row3, quote_char: "'"),
+        CSV.parse_line(Figaro.env.footer_data_row4, quote_char: "'")
+      ]
+
+      bounding_box [0, 70], :width => bounds.width, :height => 100 do
+        table footer_data, :width => bounds.width do
+          cells.borders = []
+          cells.padding = 2
+        end
+      end
+
+      render_page_numbers
+    end
+
     def render_line_items_table
       colors = self.colors
       table line_items_table_data, width: bounds.width, header: true do

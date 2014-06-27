@@ -1,3 +1,13 @@
+ENV['company_name'] = 'Acme Corporation'
+ENV['company_description'] = "If it's Acme, it's a gasser"
+ENV['footer_data_row1'] = "Some, Data, Here"
+ENV['footer_data_row2'] = "Some, Data, Here"
+ENV['footer_data_row3'] = "Some, Data, Here"
+ENV['footer_data_row4'] = ",,"
+ENV['default_currency'] = 'EUR'
+ENV['redmine_url'] = "http://example.com/redmine"
+ENV['redmine_api_key'] = "123"
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)

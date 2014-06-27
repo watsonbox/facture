@@ -16,9 +16,10 @@ table.table
         td
           = formatMoney amount currency
           if amountInDefaultCurrency
-            |  (
-            = formatMoney amountInDefaultCurrency Facture.config.default_currency
-            | )
+            span.text-muted
+              |  (
+              = formatMoney amountInDefaultCurrency Facture.config.default_currency
+              | )
         td
           if paid
             span.label.label-success Paid

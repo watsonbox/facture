@@ -4,4 +4,4 @@ Facture.LineItem = DS.Model.extend
   quantity: DS.attr('number')
   invoice: DS.belongsTo('invoice')
 
-  amount: (-> @get('quantity') * @get('price')).property('quantity', 'price')
+  amount: (-> (@get('quantity') || 1) * @get('price')).property('quantity', 'price')

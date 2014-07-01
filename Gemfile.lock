@@ -1,13 +1,13 @@
 GIT
   remote: git@github.com:watsonbox/payday.git
-  revision: db314834dc29cae3ec813d16e81a15a0c55848f7
+  revision: ff8ae8ae85de88bccc21784cd1f8ebd54c99953a
   branch: custom_styling
   specs:
-    payday (1.1.1)
-      i18n (>= 0.5.0)
-      money (~> 3.6.1)
+    payday (1.1.2)
+      i18n (>= 0.6.9)
+      money (~> 6.1.1)
       prawn (~> 1.0.0)
-      prawn-svg (~> 0.9.1)
+      prawn-svg (~> 0.15.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -118,15 +118,15 @@ GEM
     minitest (5.3.5)
     momentjs-rails (2.6.0)
       railties (>= 3.1)
-    money (3.6.2)
-      i18n (~> 0.4)
+    money (6.1.1)
+      i18n (~> 0.6.4)
     multi_json (1.10.1)
     pdf-core (0.2.5)
     polyglot (0.3.5)
     prawn (1.0.0)
       pdf-core (~> 0.2.2)
       ttfunk (~> 1.1.1)
-    prawn-svg (0.9.1.11)
+    prawn-svg (0.15.0.0)
       prawn (>= 0.8.4)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)

@@ -25,6 +25,7 @@ class Invoice < ActiveRecord::Base
   def paid_at; nil end
   def paid?; paid end
   def due_at; date + 1.month end
+  def refunded_at; nil end
 
   def attributes_with_line_items=(params)
     InvoiceAttributeUpdater.new(self).update_attributes(params)

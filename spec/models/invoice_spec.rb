@@ -45,6 +45,16 @@ describe Invoice do
     end
   end
 
+  describe '#subtotal_in_default_currency' do
+    it 'correctly converts to the default currency when an exchange rate is available' do
+      expect(Money.default_currency).to eq 'EUR'
+
+      invoice = build(:invoice_with_line_items, :currency => 'GBP', :default_currency_exchange_rate => 1.22)
+
+      expect(invoice.subtotal_in_default_currency.to_d).to eq 60.93
+    end
+  end
+
   describe '#attributes_with_line_items=' do
     it 'can be created with line_items' do
       project = create(:project)

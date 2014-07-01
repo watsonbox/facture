@@ -3,6 +3,8 @@
 #= require jquery
 #= require jquery_ujs
 #= require bootstrap-datepicker
+#= require jquery.flot.min
+#= require jquery.flot.time.min
 #= require handlebars
 #= require ember
 #= require ember-data

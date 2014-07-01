@@ -1,0 +1,4 @@
+.panel.panel-default
+  .panel-body
+    view Facture.FlotView datasetsBinding="datasets" id="emberChart"
+  .panel-footer Monthly income over past year

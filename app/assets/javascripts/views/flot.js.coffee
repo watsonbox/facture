@@ -1,4 +1,7 @@
 Facture.FlotView = Ember.View.extend
+  attributeBindings: ['style']
+  style: "height: 400px"
+
   didInsertElement: ->
     @renderChart()
 

@@ -3,6 +3,7 @@
 #= require jquery
 #= require jquery_ujs
 #= require bootstrap-datepicker
+#= require bootstrap.min
 #= require jquery.flot.min
 #= require jquery.flot.time.min
 #= require handlebars

@@ -30,14 +30,11 @@
 # may get better load performance if you require the specific files that are being used in the spec that tests them.
 #= require application
 
-document.write('<div id="ember-testing-container"><div id="ember-testing"></div></div>')
+document.write("<script type='text/x-handlebars'><div id='ember-testing' class='container' style='margin: 0 auto; width: 1200px;'>{{render 'navbar'}}{{outlet}}</div></script>")
 
-Facture.rootElement = "#ember-testing"
 Facture.setupForTesting()
 Facture.injectTestHelpers()
 
-Facture.ApplicationStore = DS.Store.extend({
-  adapter: DS.FixtureAdapter.extend()
-})
+Facture.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 Facture.invoiceSummaryData = [[1375308000000,"0.0"],[1377986400000,"0.0"],[1380578400000,"0.0"],[1383260400000,"0.0"],[1385852400000,"240.0"],[1388530800000,"0.0"],[1391209200000,"0.0"],[1393628400000,"1803.43"],[1396303200000,"0.0"],[1398895200000,"0.0"],[1401573600000,"0.0"],[1404165600000,"0.0"]]

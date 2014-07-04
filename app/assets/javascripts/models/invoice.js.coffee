@@ -37,6 +37,7 @@ Facture.Invoice = DS.Model.extend
   # Duplicate this invoice and its line items
   duplicate: ->
     invoice = @store.createRecord('invoice', @existingInvoiceJSON())
+    invoice.set('paid', false)
     @eachExistingLineItemJSON (lineItem) =>
       invoice.get('lineItems').then =>
         invoice.get('lineItems').addObject(@store.createRecord('lineItem', lineItem))

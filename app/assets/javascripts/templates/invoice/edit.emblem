@@ -51,7 +51,7 @@ if project.redmineProjectId
       |  Import Redmine Time Entries
 
 unless isNew
-  button.btn.pull-right{action 'togglePaid'} class={paid:btn-success:btn-warning paid:active}
+  button.btn.pull-right{action 'togglePaid'} class={paid:btn-success:btn-warning paid:active} id="paidButton"
     if paid
       span.glyphicon.glyphicon-ok-circle
       |  Paid

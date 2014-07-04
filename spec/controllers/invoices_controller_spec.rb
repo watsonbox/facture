@@ -26,5 +26,10 @@ describe InvoicesController do
       get :show, { id: invoice.to_param, format: 'pdf' }
       expect(assigns(:invoice)).to eq(invoice)
     end
+
+    it "generates a filename from the invoice reference" do
+      get :show, { id: invoice.to_param, format: 'pdf' }
+      expect(response.headers['Content-Disposition']).to eq('inline; filename="invoice_serv_ap1_001.pdf"')
+    end
   end
 end

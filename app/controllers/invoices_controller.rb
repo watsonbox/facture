@@ -13,7 +13,7 @@ class InvoicesController < ApplicationController
   def show
     respond_to do |format|
       format.pdf do
-        send_data(@invoice.render_pdf, filename: 'test', type: 'application/pdf', disposition: 'inline')
+        send_data(@invoice.render_pdf, filename: @invoice.filename, type: 'application/pdf', disposition: 'inline')
       end
       format.json do
         respond_with @invoice

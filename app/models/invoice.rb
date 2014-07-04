@@ -35,6 +35,10 @@ class Invoice < ActiveRecord::Base
     UNITS[unit] || :days
   end
 
+  def filename
+    "invoice_#{reference.gsub('/','_').downcase}.pdf"
+  end
+
   def subtotal_in_default_currency
     Money.add_rate(currency, Money.default_currency, default_currency_exchange_rate || 1)
     Utils.money_from_bigdecimal(subtotal, currency).exchange_to(Money.default_currency)

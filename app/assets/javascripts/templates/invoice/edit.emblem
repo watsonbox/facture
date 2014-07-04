@@ -6,17 +6,17 @@ if errors.base
 .row
   .col-xs-4
     .form-group
-      label for=invoiceReference Reference
-      = input id=invoiceReference value=reference class="form-control"
+      label for="invoiceReference" Reference
+      = input id="invoiceReference" value=reference class="form-control"
     .form-group
-      label for=invoiceCurrency Currency
-      = view Ember.Select content=Facture.currencies optionLabelPath="content.symbol" optionValuePath="content.name" prompt="Select a currency" value=currency class="form-control"
+      label for="invoiceCurrency" Currency
+      = view Ember.Select content=Facture.currencies optionLabelPath="content.symbol" optionValuePath="content.name" prompt="Select a currency" value=currency class="form-control" id="invoiceCurrency"
     .form-group
-      label for=invoiceDate Date
-      = view Facture.DatePicker id=invoiceDate class="form-control" value=date
+      label for="invoiceDate" Date
+      = view Facture.DatePicker id="invoiceDate" class="form-control" value=date
 
   .col-xs-8
-    table.table
+    table.table id="lineItems"
       thead
         th style="width: 450px" Description
         th Price
@@ -36,7 +36,7 @@ if errors.base
                   span.glyphicon.glyphicon-trash
       tfoot
         tr
-          td: a href="#" click=newLineItem New Line Item
+          td: a href="#" id="newLineItem" click=newLineItem New Line Item
           td
           td
           td: strong= formatMoney amount currency
@@ -62,6 +62,6 @@ button.btn.btn-default{action 'cancel'}
   span.glyphicon.glyphicon-remove-circle
   |  Cancel
 '
-button.btn.btn-success{action 'save'} class=isThisOrLineItemsDirty::disabled
+button.btn.btn-success{action 'save'} class=isThisOrLineItemsDirty::disabled id="saveButton"
   span.glyphicon.glyphicon-ok-circle
   |  Save

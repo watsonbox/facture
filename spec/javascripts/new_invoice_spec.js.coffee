@@ -5,12 +5,28 @@ module 'New invoice specs', {
       name: 'Acme Project 1',
       code: 'AP1'
     ]
-  teardown: ->
-    Facture.reset()
 }
 
 test 'Creating a new invoice', ->
-  visit "/projects/1/invoices/new"
+  visit "/projects/1"
 
   andThen ->
-    ok($("button:contains('Save')").length != 0, "Save button exists")
+    click('#newInvoice')
+
+  andThen ->
+    ok($("button:contains('Save')").length != 0, "Save button not found")
+
+  andThen ->
+    fillIn('#invoiceReference', 'Reference')
+    find('#invoiceCurrency').val('EUR').change()
+    fillIn('#invoiceDate', '2014-07-08')
+
+    click('#newLineItem').then ->
+      fillIn('table#lineItems input:eq(0)', 'Some work')
+      fillIn('table#lineItems input:eq(1)', '22.99')
+
+  andThen ->
+    click('#saveButton').then ->
+      equal(find('#invoices tbody tr:eq(0) td:eq(0)').text(), 'Reference', 'New invoice reference not found')
+      equal(find('#invoices tbody tr:eq(0) td:eq(1)').text(), 'July 8 2014', 'New invoice date not found')
+      equal(find('#invoices tbody tr:eq(0) td:eq(3)').text(), 'Awaiting Payment', 'New invoice has incorrect status')

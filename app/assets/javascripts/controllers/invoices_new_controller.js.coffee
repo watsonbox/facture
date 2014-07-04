@@ -3,10 +3,11 @@ Facture.InvoicesNewController = Ember.ObjectController.extend
 
   actions:
     save: ->
+      project = @get('project')
       @get('model').save().then((=>
-        @get('project').get('invoices').then (invoices) =>
+        project.get('invoices').then (invoices) =>
           invoices.addObject @get('model')
-        @transitionToRoute 'project', @get('project')
+        @transitionToRoute 'project', project#@get('project')
       ), (=>))
 
     cancel: ->

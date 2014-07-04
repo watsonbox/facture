@@ -2,4 +2,4 @@ h2 Invoices
 
 render 'invoices.index' invoices
 
-p: link-to "invoices.new" | New Invoice
+p: link-to "invoices.new" id="newInvoice" | New Invoice

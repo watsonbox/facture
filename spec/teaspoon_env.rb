@@ -61,7 +61,7 @@ Teaspoon.configure do |config|
 
     # You can include your own stylesheets if you want to change how Teaspoon looks.
     # Note: Spec related CSS can and should be loaded using fixtures.
-    suite.stylesheets = ["teaspoon", "teaspoon_custom", "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", "application"]
+    suite.stylesheets = ["teaspoon", "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css", "//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css", "application"]
 
     # Partial to be rendered in the head tag of the runner. You can use the provided ones or define your own by creating
     # a `_boot.html.erb` in your fixtures path, and adjust the config to `"/boot"` for instance.

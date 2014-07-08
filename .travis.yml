@@ -1,0 +1,15 @@
+script:
+  - bundle exec rake db:test:prepare
+  - bundle exec rake spec
+  - bundle exec rake teaspoon
+env:
+  global:
+    - company_name="Acme Corporation"
+    - company_description="If it's Acme, it's a gasser"
+    - footer_data_row1="Some, Data, Here"
+    - footer_data_row2="Some, Data, Here"
+    - footer_data_row3="Some, Data, Here"
+    - footer_data_row4=",,"
+    - default_currency="EUR"
+    - redmine_url="http://example.com/redmine"
+    - redmine_api_key="123"

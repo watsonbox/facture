@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:watsonbox/payday.git
+  remote: https://github.com/watsonbox/payday.git
   revision: ff8ae8ae85de88bccc21784cd1f8ebd54c99953a
   branch: custom_styling
   specs:

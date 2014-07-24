@@ -45,5 +45,3 @@ bundle exec rake
 * Automatic generation of invoice references from client and project codes
 * Save exchange rate from [openexchangerates.org](https://openexchangerates.org/) when marking a non default currency invoice as paid
 * Increase test coverage
-* Write plugin for Redmine to replace patch for importing time entries
-* Handle variable hourly rates on Redmine import

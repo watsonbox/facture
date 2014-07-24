@@ -1,4 +1,3 @@
-# TODO: Handle variable hourly rates
 # TODO: Add tracker and feature ID
 class Facture.RedmineImporter
   constructor: (@store, @redmineUrl, @redmineApiKey) ->

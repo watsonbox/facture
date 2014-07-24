@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627110742) do
+ActiveRecord::Schema.define(version: 20140724095640) do
 
   create_table "clients", force: true do |t|
     t.string   "name",       null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20140627110742) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "redmine_project_id"
+    t.string   "currency"
   end
 
   add_index "projects", ["client_id"], name: "index_projects_on_client_id"

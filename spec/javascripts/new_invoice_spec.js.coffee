@@ -1,9 +1,8 @@
 module 'New invoice specs', {
   setup: ->
     Facture.Project.FIXTURES = [
-      id: 1,
-      name: 'Acme Project 1',
-      code: 'AP1'
+      { id: 1, name: 'Acme Project 1', code: 'AP1' },
+      { id: 2, name: 'Acme Project 2', code: 'AP2', currency: 'GBP' }
     ]
 }
 
@@ -30,3 +29,13 @@ test 'Creating a new invoice', ->
       equal(find('#invoices tbody tr:eq(0) td:eq(0)').text(), 'Reference', 'New invoice reference not found')
       equal(find('#invoices tbody tr:eq(0) td:eq(1)').text(), 'July 8 2014', 'New invoice date not found')
       equal(find('#invoices tbody tr:eq(0) td:eq(3)').text(), 'Awaiting Payment', 'New invoice has incorrect status')
+
+
+test 'Creating a new invoice with default project currency', ->
+  visit "/projects/2"
+
+  andThen ->
+    click('#newInvoice')
+
+  andThen ->
+    equal(find('#invoiceCurrency').val(), 'GBP', 'Default currency not set')

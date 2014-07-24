@@ -1,5 +1,5 @@
 class ProjectSerializer < ApplicationSerializer
-  attributes :id, :name, :code, :redmine_project_id, :links
+  attributes :id, :name, :code, :redmine_project_id, :currency, :links
 
   def links
     {

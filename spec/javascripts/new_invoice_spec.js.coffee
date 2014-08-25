@@ -31,6 +31,10 @@ test 'Creating a new invoice', ->
       equal(find('#invoices tbody tr:eq(0) td:eq(1)').text(), 'July 8 2014', 'New invoice date not found')
       equal(find('#invoices tbody tr:eq(0) td:eq(3)').text(), 'Awaiting Payment', 'New invoice has incorrect status')
 
+  andThen ->
+    visit("/projects/1/invoices/new").then ->
+      equal(find('#invoiceReference').val(), 'ITS/AP1002', 'Default reference not set')
+
 
 test 'Creating a new invoice with default project currency', ->
   visit "/projects/2"

@@ -38,7 +38,7 @@ Facture.injectTestHelpers()
 Facture.ApplicationAdapter = DS.FixtureAdapter.extend();
 
 Facture.invoiceSummaryData = [[1375308000000,"0.0"],[1377986400000,"0.0"],[1380578400000,"0.0"],[1383260400000,"0.0"],[1385852400000,"240.0"],[1388530800000,"0.0"],[1391209200000,"0.0"],[1393628400000,"1803.43"],[1396303200000,"0.0"],[1398895200000,"0.0"],[1401573600000,"0.0"],[1404165600000,"0.0"]]
-Facture.config = { default_currency: 'EUR' }
+Facture.config = { default_currency: 'EUR', reference_format: "ITS/%{project_code}%{XXX}" }
 
 QUnit.testStart = ->
   Facture.reset()

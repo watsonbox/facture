@@ -55,3 +55,5 @@ Ember.View.reopen
 
 $ -> $('body').tooltip
   selector: "button[data-toggle=tooltip],a[data-toggle=tooltip]"
+
+RegExp.escape = (s) -> s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')

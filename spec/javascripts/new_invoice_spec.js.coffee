@@ -14,6 +14,7 @@ test 'Creating a new invoice', ->
 
   andThen ->
     ok($("button:contains('Save')").length != 0, "Save button not found")
+    equal(find('#invoiceReference').val(), 'ITS/AP1001', 'Default reference not set')
 
   andThen ->
     fillIn('#invoiceReference', 'Reference')

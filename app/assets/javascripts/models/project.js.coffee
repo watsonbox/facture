@@ -7,4 +7,6 @@ Facture.Project = DS.Model.extend
   invoices: DS.hasMany('invoice', { async: true })
 
   newInvoice: ->
-    @store.createRecord('invoice', { project: this, currency: @get('currency') })
+    invoice = @store.createRecord('invoice', { project: this, currency: @get('currency') })
+    invoice.buildReference()
+    invoice

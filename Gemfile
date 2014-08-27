@@ -19,6 +19,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'payday', git: 'https://github.com/watsonbox/payday.git', branch: 'custom_styling'
 gem 'rails_12factor'
+gem 'puma'
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', group: :development

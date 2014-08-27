@@ -32,18 +32,18 @@ ActiveRecord::Schema.define(version: 20140724095640) do
     t.integer  "unit"
   end
 
-  add_index "invoices", ["project_id"], name: "index_invoices_on_project_id"
+  add_index "invoices", ["project_id"], name: "index_invoices_on_project_id", using: :btree
 
   create_table "line_items", force: true do |t|
     t.integer  "invoice_id"
-    t.string   "description",               null: false
-    t.decimal  "quantity"
-    t.decimal  "price",       default: 0.0, null: false
+    t.string   "description",                                       null: false
+    t.decimal  "quantity",    precision: 8, scale: 2
+    t.decimal  "price",       precision: 8, scale: 2, default: 0.0, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "line_items", ["invoice_id"], name: "index_line_items_on_invoice_id"
+  add_index "line_items", ["invoice_id"], name: "index_line_items_on_invoice_id", using: :btree
 
   create_table "projects", force: true do |t|
     t.string   "name",               null: false
@@ -55,6 +55,6 @@ ActiveRecord::Schema.define(version: 20140724095640) do
     t.string   "currency"
   end
 
-  add_index "projects", ["client_id"], name: "index_projects_on_client_id"
+  add_index "projects", ["client_id"], name: "index_projects_on_client_id", using: :btree
 
 end

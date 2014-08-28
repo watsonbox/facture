@@ -20,6 +20,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'payday', git: 'https://github.com/watsonbox/payday.git', branch: 'custom_styling'
 gem 'rails_12factor'
 gem 'puma'
+gem 'rb-readline' # http://stackoverflow.com/questions/25325543/rails-console-not-working-with-dokku-on-digital-ocean
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring', group: :development

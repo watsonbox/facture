@@ -11,7 +11,7 @@ test:
   adapter: mysql2
   host: localhost
   database: facture_test
-  username: facture
-  password: blackjack
+  username: root
+  password:
   pool: 5
   timeout: 5000

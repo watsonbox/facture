@@ -1,7 +1,10 @@
 script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
   - bundle exec rake spec
   - bundle exec rake teaspoon
+before_script:
+  - mysql -e 'create database facture_test'
 env:
   global:
     - company_name="Acme Corporation"

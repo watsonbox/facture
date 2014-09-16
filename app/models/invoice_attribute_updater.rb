@@ -6,7 +6,8 @@ class InvoiceAttributeUpdater < Struct.new(:invoice)
     line_items_params = params[:line_items].to_a
 
     fake_new_record do
-      invoice.line_items = line_items_params.map { |lip| generate_line_item(lip) }
+      # Uses the Ruby 'method' method as a proc
+      invoice.line_items = line_items_params.map &method(:generate_line_item)
     end
 
     invoice.attributes = params.except(:line_items)

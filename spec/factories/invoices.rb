@@ -5,8 +5,11 @@ FactoryGirl.define do
     date { Time.now }
     association :project
 
-    factory :invoice_with_line_items do
+    # Nice overview of using traits: http://cookieshq.co.uk/posts/useful-factory-girl-methods/
+    trait :with_line_items do
       ignore do
+        # Note used in factory creation - can be set when creating invoice
+        # e.g. create(:invoice, :with_line_items, line_item_count: 10)
         line_item_count 5
       end
 

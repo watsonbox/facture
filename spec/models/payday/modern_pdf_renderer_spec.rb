@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Payday::ModernPdfRenderer do
-  let(:invoice) { build(:invoice_with_line_items, :date => Date.parse('2014-04-24')) }
+  let(:invoice) { build(:invoice, :with_line_items, :date => Date.parse('2014-04-24')) }
   let(:renderer) { Payday::ModernPdfRenderer.new }
   let(:output) { renderer.render(invoice) }
 

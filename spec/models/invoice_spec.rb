@@ -49,7 +49,7 @@ describe Invoice do
     it 'correctly converts to the default currency when an exchange rate is available' do
       expect(Money.default_currency).to eq 'EUR'
 
-      invoice = build(:invoice_with_line_items, :currency => 'GBP', :default_currency_exchange_rate => 1.22)
+      invoice = build(:invoice, :with_line_items, :currency => 'GBP', :default_currency_exchange_rate => 1.22)
 
       expect(invoice.subtotal_in_default_currency.to_d).to eq 60.93
     end

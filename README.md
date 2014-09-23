@@ -22,7 +22,7 @@ Facture is a re-write of my original Rails-only invoice management application, 
 * Render invoices using [Payday](https://github.com/commondream/payday/)
 * Duplicate existing invoices
 * Mark invoices as Paid or Pending
-* Import time entries from [Redmine](http://www.redmine.org/) (depends on patch)
+* Import time entries from [Redmine](http://www.redmine.org/) (using [this plugin](https://github.com/watsonbox/redmine_facture))
 
 
 ## Tests

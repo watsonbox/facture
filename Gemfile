@@ -18,7 +18,6 @@ gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'payday', git: 'https://github.com/watsonbox/payday.git', branch: 'custom_styling'
-gem 'rails_12factor'
 gem 'puma'
 gem 'rb-readline' # http://stackoverflow.com/questions/25325543/rails-console-not-working-with-dokku-on-digital-ocean
 
@@ -31,4 +30,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'quiet_assets'
   gem 'teaspoon'
+end
+
+group :production do
+  gem 'rails_12factor'
 end

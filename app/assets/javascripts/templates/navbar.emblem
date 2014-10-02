@@ -13,5 +13,8 @@
               li
                 link-to 'project' project
                   = project.name
+                  if project.has_unpaid_invoices
+                    | &nbsp;&nbsp;
+                    span.glyphicon.glyphicon-flag title="There are unpaid invoices for this project"
         li
           p.navbar-text= title

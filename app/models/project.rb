@@ -7,4 +7,8 @@ class Project < ActiveRecord::Base
 
   delegate :name, to: :client, prefix: true
   delegate :address, to: :client, prefix: true
+
+  def unpaid_invoices?
+    invoices.where(paid: false).exists?
+  end
 end

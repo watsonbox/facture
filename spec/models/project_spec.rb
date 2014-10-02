@@ -25,6 +25,18 @@ describe Project do
     expect(project.client_address).to eq(random_name)
   end
 
+  it 'has no unpaid invoices by default' do
+    expect(project.unpaid_invoices?).to eq(false)
+  end
+
+  context 'unpaid invoices exist' do
+    let!(:unpaid_invoice) { create(:invoice, project: project, paid: false) }
+
+    it 'has_unpaid_invoices' do
+      expect(project.unpaid_invoices?).to eq(true)
+    end
+  end
+
   def random_name(length = 8)
     ('a'..'z').to_a.shuffle[0,length].join
   end

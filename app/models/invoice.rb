@@ -15,6 +15,8 @@ class Invoice < ActiveRecord::Base
     2 => :days
   }
 
+  scope :unpaid, -> { where(paid: false) }
+
   def client_name_and_address
     "#{client_name}\n#{client_address}"
   end

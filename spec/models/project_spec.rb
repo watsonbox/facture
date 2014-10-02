@@ -35,6 +35,14 @@ describe Project do
     it 'has_unpaid_invoices' do
       expect(project.unpaid_invoices?).to eq(true)
     end
+
+    describe '#all_with_unpaid_invoices' do
+      it 'loads all projects with unpaid invoice data' do
+        project = Project.all_with_unpaid_invoices.first
+
+        expect(project.unpaid_invoices?).to eq(true)
+      end
+    end
   end
 
   def random_name(length = 8)

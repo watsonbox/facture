@@ -1,3 +1,6 @@
+language: ruby
+rvm:
+  - 2.1.2
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
@@ -16,3 +19,4 @@ env:
     - default_currency="EUR"
     - redmine_url="http://example.com/redmine"
     - redmine_api_key="123"
+    - reference_format=ITS/%{project_code}%{XXX}

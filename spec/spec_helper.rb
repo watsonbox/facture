@@ -1,3 +1,6 @@
+require 'coveralls'
+Coveralls.wear_merged!('rails')
+
 ENV['company_name'] = 'Acme Corporation'
 ENV['company_description'] = "If it's Acme, it's a gasser"
 ENV['footer_data_row1'] = "Some, Data, Here"

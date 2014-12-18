@@ -4,8 +4,7 @@ rvm:
 script:
   - RAILS_ENV=test bundle exec rake db:migrate --trace
   - bundle exec rake db:test:prepare
-  - bundle exec rake spec
-  - bundle exec rake teaspoon
+  - bundle exec rake spec_with_coveralls
 before_script:
   - mysql -e 'create database facture_test'
 sudo: false

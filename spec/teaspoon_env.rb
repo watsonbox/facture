@@ -1,6 +1,3 @@
-require 'coveralls'
-Coveralls.wear_merged!('rails')
-
 # Set RAILS_ROOT and load the environment if it's not already loaded.
 unless defined?(Rails)
   ENV["RAILS_ROOT"] = File.expand_path("../../", __FILE__)

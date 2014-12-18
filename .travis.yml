@@ -8,6 +8,7 @@ script:
   - bundle exec rake teaspoon
 before_script:
   - mysql -e 'create database facture_test'
+sudo: false
 env:
   global:
     - company_name="Acme Corporation"

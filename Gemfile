@@ -7,8 +7,11 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'haml-rails'
 gem 'ember-rails'
+gem 'active_model_serializers', '~> 0.8.0' # Hold here for now since can't use path helpers in 0.9
 gem 'ember-source'
 gem 'emblem-rails'
+gem 'emblem-source', git: 'https://github.com/machty/emblem.js.git' # See https://github.com/machty/emblem.js/issues/182
+gem 'barber-emblem', git:'https://github.com/simcha/barber-emblem.git' # See https://github.com/machty/emblem.js/issues/182
 gem 'momentjs-rails'
 gem 'accountingjs-rails'
 gem 'bootstrap-datepicker-rails'

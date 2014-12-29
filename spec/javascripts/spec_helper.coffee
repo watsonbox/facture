@@ -6,7 +6,9 @@
 #
 # PhantomJS (Teaspoons default driver) doesn't have support for Function.prototype.bind, which has caused confusion.
 # Use this polyfill to avoid the confusion.
-#= require support/bind-poly
+# Had to use the following shim from react to get working with Ember 1.9:
+# https://raw.githubusercontent.com/facebook/react/master/src/test/phantomjs-shims.js
+#= require support/bind-poly-phantomjs
 #
 # Deferring execution
 # If you're using CommonJS, RequireJS or some other asynchronous library you can defer execution. Call

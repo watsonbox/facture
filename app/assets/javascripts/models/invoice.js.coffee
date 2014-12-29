@@ -49,7 +49,7 @@ Facture.Invoice = DS.Model.extend
     reference_format = Facture.config.reference_format.replace('%{project_code}', @get('project.code'))
 
     @get('project.invoices').then (invoices) =>
-      references = @get('project.invoices').mapBy('reference').without(undefined)
+      references = invoices.mapBy('reference').without(undefined)
 
       indices = references.map (reference) ->
         regex = '^' + RegExp.escape(reference_format).replace('%\\{XXX\\}', '(\\d{3})') + '$'

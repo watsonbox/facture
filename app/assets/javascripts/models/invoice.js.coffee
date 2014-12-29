@@ -46,21 +46,23 @@ Facture.Invoice = DS.Model.extend
   # Build a reference according to the configured reference format
   buildReference: ->
     return unless Facture.config.reference_format
-    reference = Facture.config.reference_format.replace('%{project_code}', @get('project.code'))
+    reference_format = Facture.config.reference_format.replace('%{project_code}', @get('project.code'))
 
     @get('project.invoices').then (invoices) =>
-      indices = @get('project.invoices').map (invoice) ->
-        regex = '^' + RegExp.escape(reference).replace('%\\{XXX\\}', '(\\d{3})') + '$'
-        match = invoice.get('reference').match(regex)
+      references = @get('project.invoices').mapBy('reference').without(undefined)
+
+      indices = references.map (reference) ->
+        regex = '^' + RegExp.escape(reference_format).replace('%\\{XXX\\}', '(\\d{3})') + '$'
+        match = reference.match(regex)
         if (match == null) then 1 else parseInt(match[1])
 
       if (indices.length == 0)
         # Set first index
-        reference = reference.replace('%{XXX}', '001')
+        reference = reference_format.replace('%{XXX}', '001')
       else
         # Set highest existing index plus one
         s = "00" + (Math.max.apply(Math, indices) + 1)
-        reference = reference.replace('%{XXX}', s.substr(s.length - 3))
+        reference = reference_format.replace('%{XXX}', s.substr(s.length - 3))
 
       @set('reference', reference)
 

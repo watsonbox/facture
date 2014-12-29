@@ -58,7 +58,7 @@ unless isNew
     else
       | Mark Paid
 
-button.btn.btn-default{action 'cancel'}
+button.btn.btn-default{action 'cancel'} id="cancelButton"
   span.glyphicon.glyphicon-remove-circle
   |  Cancel
 '

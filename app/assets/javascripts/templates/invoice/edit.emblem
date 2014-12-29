@@ -13,7 +13,7 @@ if errors.base
       = view Ember.Select content=Facture.currencies optionLabelPath="content.symbol" optionValuePath="content.name" prompt="Select a currency" value=currency class="form-control" id="invoiceCurrency"
     .form-group
       label for="invoiceDate" Date
-      = view Facture.DatePicker id="invoiceDate" class="form-control" value=date
+      = view 'date_picker' id="invoiceDate" class="form-control" value=date
 
   .col-xs-8
     table.table id="lineItems"

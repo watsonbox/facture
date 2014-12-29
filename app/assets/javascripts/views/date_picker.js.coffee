@@ -1,4 +1,4 @@
-Facture.DatePicker = Ember.TextField.extend
+Facture.DatePickerView = Ember.TextField.extend
   didInsertElement: ->
     $(@get('element')).datepicker(
       format: "yyyy-mm-dd"

@@ -25,26 +25,6 @@ DS.Model.reopen
         continue if (!errors.hasOwnProperty(key))
         recordErrors.add(key, errors[key])
 
-DS.ManyArray.reopen
-  # Refresh hasMany with links
-  # Based on code from: http://stackoverflow.com/questions/19983483/how-to-reload-an-async-with-links-hasmany-relationship
-  # As mentioned in issue, would be nice to know why link relationships are not reloaded
-  reloadLinks: ->
-    records = @get('content')
-    store = @get('store')
-    owner = @get('owner')
-    name = @get('name')
-    resolver = Ember.RSVP.defer()
-    meta = owner.constructor.metaForProperty(name)
-    link = owner._data.links[meta.key]
-    relationship = Ember.get(owner.constructor, 'relationshipsByName').get(name)
-
-    records = store.findHasMany(owner, link, relationship, resolver)
-
-    # Rollback each record to clear dirty status
-    resolver.promise.then (records) ->
-      records.forEach (r) -> r.rollback()
-
 # Automatically bind data attributes in ember view helpers
 Ember.View.reopen
   init: ->

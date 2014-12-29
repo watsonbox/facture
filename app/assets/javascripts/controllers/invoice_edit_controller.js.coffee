@@ -3,7 +3,7 @@ Facture.InvoiceEditController = Ember.ObjectController.extend
     save: ->
       @get('model').save().then((=>
         # Reload all line items for the invoice as they may have a new ID
-        @get('model.lineItems').then (a) -> a.reloadLinks()
+        @get('model.lineItems').then (a) -> a.reload()
 
         @transitionToRoute 'project', @get('model.project')
       ), (=>))
@@ -11,7 +11,7 @@ Facture.InvoiceEditController = Ember.ObjectController.extend
     cancel: ->
       # Rollback the invoice and reload its line items
       @get('model').rollback()
-      @get('model.lineItems').then (a) -> a.reloadLinks()
+      @get('model.lineItems').then (a) -> a.reload()
 
       @transitionToRoute 'project', @get('model.project')
 

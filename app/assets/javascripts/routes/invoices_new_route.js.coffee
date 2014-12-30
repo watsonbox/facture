@@ -1,6 +1,8 @@
 Facture.InvoicesNewRoute = Ember.Route.extend
   model: ->
-    @modelFor('project').newInvoice()
+    # Seems we must ensure the invoices exist or the invoice is not properly associated
+    project = @modelFor('project')
+    project.get('invoices').then -> project.newInvoice()
 
   renderTemplate: ->
     @render('invoice.edit', {

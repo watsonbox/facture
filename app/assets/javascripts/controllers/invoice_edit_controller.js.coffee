@@ -1,4 +1,6 @@
 Facture.InvoiceEditController = Ember.ObjectController.extend
+  currencies: (-> Facture.currencies ).property()
+
   actions:
     save: ->
       @get('model').save().then((=>

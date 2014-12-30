@@ -1,5 +1,6 @@
 Facture.InvoicesNewController = Ember.ObjectController.extend
   isImporting: false
+  currencies: (-> Facture.currencies ).property()
 
   actions:
     save: ->

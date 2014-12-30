@@ -20,4 +20,5 @@ Facture.currency_symbols = {
 Facture.currencies = $.map Facture.currency_symbols, (value, key) -> { name: key, symbol: "#{value} - #{key}" }
 
 Ember.Handlebars.registerBoundHelper 'formatMoney', (amount, currency) ->
+  currency = Facture.config.default_currency if currency is undefined
   accounting.formatMoney(amount, Facture.currency_symbols[currency])

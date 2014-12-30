@@ -2,7 +2,7 @@
   .container-fluid
     .navbar-header
       a.navbar-brand href="#"
-        unbound Facture.app_title
+        unbound app_title
     .navbar-collapse.collapse
       .nav.navbar-nav
         li.dropdown

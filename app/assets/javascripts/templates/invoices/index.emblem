@@ -7,21 +7,21 @@ table.table#invoices
       th Status
       th
   tbody
-    each
-      tr class=isThisOrLineItemsDirty:bg-danger
+    each invoice in controller
+      tr class=invoice.isThisOrLineItemsDirty:bg-danger
         td
           a href='#' click=edit
-            = reference
-        td= prettyDate date
+            = invoice.reference
+        td= prettyDate invoice.date
         td
-          = formatMoney amount currency
-          if amountInDefaultCurrency
+          = formatMoney invoice.amount invoice.currency
+          if invoice.amountInDefaultCurrency
             span.text-muted
               |  (
-              = formatMoney amountInDefaultCurrency Facture.config.default_currency
+              = formatMoney invoice.amountInDefaultCurrency null
               | )
         td
-          if paid
+          if invoice.paid
             span.label.label-success Paid
           else
             span.label.label-warning Awaiting Payment
@@ -29,11 +29,11 @@ table.table#invoices
           .btn-group.btn-group-xs.right
             button.btn.btn-default{action "edit"} type="button" data-toggle="tooltip" data-placement="top" data-container="body" title="Edit invoice"
               span.glyphicon.glyphicon-pencil
-            link-to "invoice.duplicate" this class="btn btn-default duplicateInvoice" data-toggle="tooltip" data-placement="top" data-container="body" title="Duplicate Invoice"
+            link-to "invoice.duplicate" invoice class="btn btn-default duplicateInvoice" data-toggle="tooltip" data-placement="top" data-container="body" title="Duplicate Invoice"
               span.glyphicon.glyphicon-plus-sign
             button.btn.btn-default{action "delete"} type="button" data-toggle="tooltip" data-placement="top" data-container="body" title="Delete invoice"
               span.glyphicon.glyphicon-trash
-            a.btn.btn-default href="/invoices/{{unbound this.id}}.pdf" target="_blank" data-toggle="tooltip" data-placement="top" data-container="body" title="Render invoice"
+            a.btn.btn-default href="/invoices/{{unbound invoice.id}}.pdf" target="_blank" data-toggle="tooltip" data-placement="top" data-container="body" title="Render invoice"
               span.glyphicon.glyphicon-download-alt
   tfoot
     tr

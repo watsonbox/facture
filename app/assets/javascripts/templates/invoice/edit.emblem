@@ -10,7 +10,7 @@ if errors.base
       = input id="invoiceReference" value=reference class="form-control"
     .form-group
       label for="invoiceCurrency" Currency
-      = view Ember.Select content=Facture.currencies optionLabelPath="content.symbol" optionValuePath="content.name" prompt="Select a currency" value=currency class="form-control" id="invoiceCurrency"
+      = view 'select' content=currencies optionLabelPath="content.symbol" optionValuePath="content.name" prompt="Select a currency" value=currency class="form-control" id="invoiceCurrency"
     .form-group
       label for="invoiceDate" Date
       = view 'date_picker' id="invoiceDate" class="form-control" value=date
@@ -24,15 +24,15 @@ if errors.base
         th Amount
         th
       tbody
-        each lineItems
+        each lineItem in lineItems
           tr
-            td.small= input value=description class="form-control input-sm"
-            td= input value=price class="form-control input-sm"
-            td= input value=quantity class="form-control input-sm"
-            td= formatMoney amount invoice.currency
+            td.small= input value=lineItem.description class="form-control input-sm"
+            td= input value=lineItem.price class="form-control input-sm"
+            td= input value=lineItem.quantity class="form-control input-sm"
+            td= formatMoney lineItem.amount currency
             td.text-right
               .btn-group.btn-group-xs.right
-                button.btn.btn-default{action "deleteLineItem" this} type="button" data-toggle="tooltip" data-placement="top" data-container="body" title="Delete line item"
+                button.btn.btn-default{action "deleteLineItem" lineItem} type="button" data-toggle="tooltip" data-placement="top" data-container="body" title="Delete line item"
                   span.glyphicon.glyphicon-trash
       tfoot
         tr

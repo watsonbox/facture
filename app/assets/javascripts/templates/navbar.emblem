@@ -9,7 +9,7 @@
           a.dropdown-toggle href="#" data-toggle="dropdown"
             | Projects <b class="caret"></b>
           ul class="dropdown-menu"
-            each project in controller.projects
+            each project in controller.sortedProjects
               li
                 link-to 'project' project
                   = project.name

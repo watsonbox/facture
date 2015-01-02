@@ -39,9 +39,3 @@ The unit tests are rspec.
 ```
 bundle exec rake
 ```
-
-
-## Todo
-
-* Save exchange rate from [openexchangerates.org](https://openexchangerates.org/) when marking a non default currency invoice as paid
-* Increase test coverage

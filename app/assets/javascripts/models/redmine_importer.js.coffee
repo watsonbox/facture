@@ -13,7 +13,7 @@ class Facture.RedmineImporter
     .then (fieldId) =>
       $.ajax
         type: "GET"
-        url: "#{@redmineUrl}/time_entries.json?project_id=#{project_id}&cf_#{fieldId}=0"
+        url: "#{@redmineUrl}/time_entries.json?project_id=#{project_id}&cf_#{fieldId}=0&limit=100"
         dataType: 'jsonp'
         crossDomain: true
         headers: { "Authorization": btoa("#{@redmineApiKey}:") }

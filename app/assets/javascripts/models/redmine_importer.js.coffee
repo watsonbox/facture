@@ -22,7 +22,7 @@ class Facture.RedmineImporter
         @store.createRecord(
           'lineItem',
           {
-            description: "#{timeEntry.spent_on}: #{timeEntry.issue.subject}",
+            description: "#{timeEntry.spent_on} ##{timeEntry.issue.id}: #{timeEntry.issue.subject}",
             price: timeEntryActivityPrices[timeEntry.activity.id],
             quantity: timeEntry.hours
           }

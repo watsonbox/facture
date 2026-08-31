@@ -28,7 +28,7 @@ gem 'responders', '~> 2.0'
 gem 'spring', group: :development
 
 group :development, :test do
-  gem 'debugger'
+  gem 'byebug', '< 10' # byebug 10 requires Ruby >= 2.2
   gem 'rspec-rails', '~> 3.0.0.beta2'
   gem 'factory_girl_rails'
   gem 'quiet_assets'

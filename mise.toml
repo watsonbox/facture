@@ -1,0 +1,18 @@
+[settings]
+# mise ignores .ruby-version/.node-version unless the tool is opted in here.
+idiomatic_version_file_enable_tools = ["ruby"]
+
+[tasks.server]
+alias = "s"
+description = "Rails server on http://localhost:3000"
+run = "bin/rails s"
+
+[tasks.test]
+alias = "t"
+description = "Run the RSpec suite (pass files/paths as arguments)"
+run = "bundle exec rspec"
+
+[tasks.console]
+alias = "c"
+description = "Rails console"
+run = "bin/rails console"
